@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'wanderer',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,3 +82,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# added
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/mingwei/wanderer-server/media/'
