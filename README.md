@@ -8,6 +8,6 @@ Server for wanderer clients. Written in Django.
 
 ###Python libraries:
 * `Django` 1.7
-* `Pillow` (for something with the DB... not sure what)
+* `Pillow` (for the image DB)
 * `djangorestframework` (http://www.django-rest-framework.org/)
 * `django-filter`

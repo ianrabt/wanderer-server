@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'wanderer',
 )
 
@@ -87,3 +88,10 @@ STATIC_URL = '/static/'
 # added
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/mingwei/wanderer-server/media/'
+
+
+REST_FRAMEWORK = {
+  'DEFAULT_PERMISSION_CLASSES' : [
+    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+  ]
+}
