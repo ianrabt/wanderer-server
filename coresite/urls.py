@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django.db.models import Count
 from django.conf import settings
 
 from rest_framework import routers, serializers, viewsets
@@ -16,9 +17,23 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'username', 'email', 'is_staff')
 
 class LocationSerializer(serializers.ModelSerializer):
+    rating_avg = serializers.SerializerMethodField()
+    rating_count = serializers.SerializerMethodField()
+
+    def get_rating_avg(self, loc):
+        total = 0
+        for rating in loc.rating_set.all():
+            total += rating.rating
+        if total == 0:
+            return 0
+        return total / len(loc.rating_set.all())
+    def get_rating_count(self, loc):
+        return len(loc.rating_set.all())
+
     class Meta:
         model = Location
-        fields = ('id', 'address','latitude', 'longitude', 'perspective_set', 'rating_set')
+        fields = ('id', 'address','latitude', 'longitude', 'perspective_set', 'rating_set', 
+'rating_count', 'rating_avg')
         depth = 1
 
 class RatingSerializer(serializers.ModelSerializer):

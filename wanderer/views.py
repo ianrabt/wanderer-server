@@ -4,7 +4,10 @@ from django.http import HttpResponse
 from wanderer.models import Location
 
 def index(request):
-  return render(request, 'wanderer/test.html')
+  return render(request, 'wanderer/index.html')
+
+def app(request):
+  return render(request, 'wanderer/app.html')
 
 def link(request, location_id):
   loc = get_object_or_404(Location, pk=location_id)

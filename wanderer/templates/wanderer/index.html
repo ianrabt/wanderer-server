@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Wanderer - Explore the World Together</title>
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-light btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top">Wanderer</a>
+            </li>
+            <li>
+                <a href="#top">Home</a>
+            </li>
+            <li>
+                <a href="./app/">Launch Webapp</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#features">Features</a>
+            </li>
+	    <li>
+                <a href="#screens">Screenshots</a>
+            </li>
+            <li>
+                <a href="#technology">Technologies</a>
+            </li>
+            <li>
+                <a href="#author">Authors</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+	    <img style="width: 80%; max-width: 450px; margin-bottom: 20px;" src="{% static 'img/banner.png' %}"/>
+            <br>
+            <a style="outline: #fff solid thin;" href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+		    <img style="max-width:256px; width:90%"src="{% static 'img/logo.png' %}" />
+		    <h2><b>Wanderer</b> is a new app to find interesting places</h2>
+                    <p class="lead">Wanderer collects user-provided content to catalogue the most popular and intriguing sights near you. With an elegant user interface and streamlined Google Maps integration, Wanderer makes it straightforward to find the places people enjoy the most.</p>
+		    <a style="font-size: 1.5em;"class="btn btn-dark" href="./app/">Launch Webapp</a>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Features -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="features" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Features</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-map-marker fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Find Locations</strong>
+                                </h4>
+				<p>With Wanderer, finding well-travelled and incredible points of interest takes seconds. Find locations in your area and discover a whole new world at your fingertips with your smartphone.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-pencil fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Add Sights</strong>
+                                </h4>
+				<p>Know someplace amazing that deserves to be recognized? Add it to the Wanderer database and let the world know what awaits them.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-star fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Rate</strong>
+                                </h4>
+				<p>When you visit points of interest, you can rate them to let others know if they are worth visiting or not. If a location receives a low enough rating, it will be removed.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                                </span>
+                                <h4>
+                                    <strong>Discover</strong>
+                                </h4>
+				<p>Constantly changing and always growing, Wanderer gives you a new way to explore your surroundings, no matter where you are in the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1>Explore the World Together</h1>
+        </div>
+    </aside>
+
+    <!-- Screenshots -->
+    <section id="screens" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Screenshots</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="{% static 'img/portfolio-1.jpg' %}">
+                                    <img class="img-portfolio img-responsive" src="{% static 'img/portfolio-1.jpg' %}">
+				</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="{% static 'img/portfolio-2.jpg' %}">
+                                    <img class="img-portfolio img-responsive" src="{% static 'img/portfolio-2.jpg' %}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="{% static 'img/portfolio-3.jpg' %}">
+                                    <img class="img-portfolio img-responsive" src="{% static 'img/portfolio-3.jpg' %}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="{% static 'img/portfolio-4.jpg' %}">
+                                    <img class="img-portfolio img-responsive" src="{% static 'img/portfolio-4.jpg' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Map -->
+    <!--
+    <section id="webapp" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <br/>
+        <small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+        </small>
+        </iframe>
+    </section>
+    -->
+
+    <!-- Technologies -->
+    <section id="technology" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <h2>Technologies</h2>
+                <hr class="medium">
+		<h4><strong>Django</strong></h4>
+		<p>Server Backend</p>
+                <hr class="small">
+		<h4><strong>Java</strong></h4>
+		<p>Android Client</p>
+                <hr class="small">
+		<h4><strong>Bootstrap</strong></h4>
+		<p>Website</p>
+            </div>
+	</div>
+     </section>
+
+    <!-- Authors -->
+    <section id="author" class="services">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Authors</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+				    <h4><strong>Connick Shields</strong></h4>
+				    <p>UI Design and Programming</p>
+			    </div>
+			</div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+				    <h4><strong>Mingwei Samuel</strong></h4>
+				    <p>System Administrator</p>
+			    </div>
+			</div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+				    <h4><strong>Ian Taylor</strong></h4>
+				    <p>Web Design</p>
+			    </div>
+			</div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+				    <h4><strong>Ilana Franklin</strong></h4>
+				    <p>Lead Designer</p>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	</div>
+     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Wanderer</strong>
+                    </h4>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+		    <p class="text-muted">Created at <a href="http://www.hshacks.com/">HSHacks II</a>.</p>
+		    <p class="text-muted">Copyright &copy; <b>Team $(whoami)</b> 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script type="text/javascript">
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+</body>
+
+</html>

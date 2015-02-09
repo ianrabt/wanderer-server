@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Wanderer</title>
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Map -->
+    <section id="webapp" class="map">
+        <div style="width: 100%;" class="btn-group" role="group" aria-label="...">
+            <button style="width: 33%;" type="button" class="btn btn-orange">Map</button>
+            <button style="width: 34%;" type="button" class="btn btn-orange">Photos</button>
+            <button style="width: 33%;" type="button" class="btn btn-orange">List</button>
+        </div>
+        <div id="map-container" style="height: 100%"><div>
+        <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+-->        <br/>
+        <small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+        </small>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding-top: 50px; padding-bottom: 0px; margin-bottom: 0px;">
+        <div class="container" style="padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="col-lg-10 col-lg-offset-1 text-center" style="padding-bottom: 0px; margin-bottom: 0px;">
+                    <h4><strong>Wanderer</strong>
+                    </h4>
+		    <p class="text-muted">Created at <a href="http://www.hshacks.com/">HSHacks II</a>.</p>
+		    <p class="text-muted">Copyright &copy; <b>Team $(whoami)</b> 2015</p>
+                </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!-- maps -->
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJKsLuZRL-RzLpVaM4rBMdV4drMoiUcgU"></script>
+    <!-- Custom Theme JavaScript -->
+    <script type="text/javascript">
+    var options = {
+        zoom: 6,
+        center: new google.maps.LatLng(37, -120)
+    }
+    var map = new google.maps.Map(document.getElementById('map-container'), options);
+    $.ajax('http://192.168.91.135:8000/api/locations/?format=json').done(function(data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+            var loc = data[i];
+            var ratingStr = '';
+            for (var j = 0; j < 5; j++) {
+                if (loc.rating_avg > j)
+                    ratingStr += '\u2605';
+                else
+                    ratingStr += '\u2606';
+            }
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(loc.latitude, loc.longitude),
+                map: map,
+                title: loc.address + ' (' + ratingStr + ')'
+            });
+        }
+    });
+    </script>
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+</body>
+
+</html>
